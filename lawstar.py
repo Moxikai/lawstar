@@ -63,6 +63,9 @@ class LawStar():
         from selenium import webdriver
         driverPath = os.path.join(os.path.dirname(__file__), 'chromedriver')
         self.driver = webdriver.Chrome(executable_path=driverPath)
+    #关闭驱动
+    def closeDriver(self):
+        self.driver.quit()
 
     #通过浏览器下载详情页面
     def downlaodByDriver(self,url):
@@ -308,9 +311,11 @@ class LawStar():
 
 if __name__ == '__main__':
 
-    test= LawStar(titles='诈骗',contents='P2P')
+    test= LawStar(titles='诈骗',contents='诈骗')
     test.setDriver()
     test.getDataByDepth()
+    test.closeDriver()
+
 
 
 
